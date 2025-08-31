@@ -44,7 +44,7 @@ export default function Hero() {
     );
   };
   return (
-    <section id="hero" ref={containerRef}>
+    <section id="hero" ref={containerRef} className="overflow-x-clip">
       <div className="relative py-12 md:py-40">
         <motion.img
           src={link.src}
