@@ -45,7 +45,7 @@ export default function Hero() {
   };
   return (
     <section id="hero" ref={containerRef}>
-      <div className="relative py-24 md:py-40">
+      <div className="relative py-32 md:py-40">
         <motion.img
           src={link.src}
           alt="link"
