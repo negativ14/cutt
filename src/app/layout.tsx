@@ -4,6 +4,7 @@ import "./globals.css";
 import SessionProviderWrapper from "./providers/SessionProviderWrapper";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import QueryProvider from "./providers/QueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,9 +42,11 @@ export default function RootLayout({
         }}
       >
         <SessionProviderWrapper>
-          <Navbar />
-          {children}
-          <Footer />
+          <QueryProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </QueryProvider>
         </SessionProviderWrapper>
       </body>
     </html>

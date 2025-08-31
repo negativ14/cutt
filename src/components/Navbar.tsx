@@ -6,10 +6,13 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Skeleton from "./ui/Skeleton";
 
 export default function Navbar() {
   const session = useSession();
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav
@@ -24,15 +27,33 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-4">
+          {session.status === "loading" && (
+            <>
+              <Skeleton className="h-10 w-28 rounded-full" />
+              <Skeleton className="h-10 w-10 rounded-full" />
+            </>
+          )}
           {session.status === "authenticated" && (
-            <Link href="/dashboard">
-              <Button className="hidden md:block">Dashboard</Button>
-            </Link>
+            <>
+              {pathname === "/dashboard" ? (
+                <Link href="/">
+                  <Button className="hidden md:block cursor-pointer">
+                    Home
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/dashboard">
+                  <Button className="hidden md:block cursor-pointer">
+                    Dashboard
+                  </Button>
+                </Link>
+              )}
+            </>
           )}
 
           {session.status === "unauthenticated" && (
             <Button
-              className=""
+              className="cursor-pointer"
               variant="secondary"
               onClick={async () =>
                 await signIn("google", undefined, { prompt: "select_account" })
@@ -45,7 +66,7 @@ export default function Navbar() {
 
           {session.status === "authenticated" && (
             <MenuIcon
-              className="md:hidden"
+              className="md:hidden cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
             />
           )}
@@ -56,7 +77,7 @@ export default function Navbar() {
               className="hidden md:flex"
               onClick={() => signOut()}
             >
-              <span className="">Sign out</span>
+              <span className="cursor-pointer">Sign out</span>
               <LogOutIcon />
             </Button>
           )}
@@ -87,9 +108,19 @@ export default function Navbar() {
             }}
           >
             <div className="flex flex-col gap-4 mb-3">
-              <Link href="/dashboard">
-                <Button className="block md:hidden">Dashboard</Button>
-              </Link>
+              <>
+                {pathname === "/dashboard" ? (
+                  <Link href="/">
+                    <Button className="block w-full md:hidden">Home</Button>
+                  </Link>
+                ) : (
+                  <Link href="/dashboard">
+                    <Button className="block w-full md:hidden">
+                      Dashboard
+                    </Button>
+                  </Link>
+                )}
+              </>
               <Button
                 variant="secondary"
                 className="flex md:hidden"
@@ -105,5 +136,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-// {/* <Loader2Icon className="animate-spin" /> */}

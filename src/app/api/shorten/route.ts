@@ -19,7 +19,6 @@ export async function POST(req: Request) {
     } catch {
       return NextResponse.json({ error: "Invalid URL" }, { status: 400 });
     }
-    1;
 
     if (!["http:", "https:"].includes(parsedUrl.protocol)) {
       return NextResponse.json(

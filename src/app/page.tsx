@@ -5,14 +5,14 @@ import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import ProductShowcase from "@/components/ProductShowcase";
 import SiteStats from "@/components/SiteStats";
+import HeroSkeleton from "@/components/skeletons/HeroSkeleton";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
   const { status } = useSession();
 
-  // Handle loading state
   if (status === "loading") {
-    return <p>Loading session...</p>;
+    return <HeroSkeleton />;
   }
 
   return (

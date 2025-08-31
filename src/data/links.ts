@@ -1,0 +1,92 @@
+export const linksData = [
+  {
+    shortUrl: "https://cutt.store/a1b2c3",
+    originalUrl: "https://amazon.com/product/12345",
+    createdAt: "2025-08-10",
+    clicks: 245,
+  },
+  {
+    shortUrl: "https://cutt.store/d4e5f6",
+    originalUrl: "https://youtube.com/watch?v=abcd1234",
+    createdAt: "2025-08-12",
+    clicks: 521,
+  },
+  {
+    shortUrl: "https://cutt.store/g7h8i9",
+    originalUrl: "https://twitter.com/user/status/54321",
+    createdAt: "2025-08-14",
+    clicks: 89,
+  },
+  {
+    shortUrl: "https://cutt.store/j1k2l3",
+    originalUrl: "https://netflix.com/title/80232398",
+    createdAt: "2025-08-15",
+    clicks: 310,
+  },
+  {
+    shortUrl: "https://cutt.store/m4n5o6",
+    originalUrl: "https://github.com/user/repo",
+    createdAt: "2025-08-17",
+    clicks: 432,
+  },
+  {
+    shortUrl: "https://cutt.store/p7q8r9",
+    originalUrl: "https://medium.com/@dev/article-123",
+    createdAt: "2025-08-18",
+    clicks: 76,
+  },
+  {
+    shortUrl: "https://cutt.store/s1t2u3",
+    originalUrl: "https://linkedin.com/in/username",
+    createdAt: "2025-08-20",
+    clicks: 194,
+  },
+  {
+    shortUrl: "https://cutt.store/v4w5x6",
+    originalUrl: "https://apple.com/macbook-pro",
+    createdAt: "2025-08-21",
+    clicks: 367,
+  },
+  {
+    shortUrl: "https://cutt.store/y7z8a9",
+    originalUrl: "https://openai.com/research",
+    createdAt: "2025-08-22",
+    clicks: 258,
+  },
+  {
+    shortUrl: "https://cutt.store/b1c2d3",
+    originalUrl: "https://stackoverflow.com/questions/12345",
+    createdAt: "2025-08-23",
+    clicks: 401,
+  },
+  {
+    shortUrl: "https://cutt.store/e4f5g6",
+    originalUrl: "https://spotify.com/playlist/67890",
+    createdAt: "2025-08-24",
+    clicks: 132,
+  },
+  {
+    shortUrl: "https://cutt.store/h7i8j9",
+    originalUrl: "https://bbc.com/news/tech-12345",
+    createdAt: "2025-08-25",
+    clicks: 55,
+  },
+  {
+    shortUrl: "https://cutt.store/k1l2m3",
+    originalUrl: "https://reddit.com/r/webdev/comments/12345",
+    createdAt: "2025-08-26",
+    clicks: 278,
+  },
+  {
+    shortUrl: "https://cutt.store/n4o5p6",
+    originalUrl: "https://dribbble.com/shots/1234567",
+    createdAt: "2025-08-27",
+    clicks: 344,
+  },
+  {
+    shortUrl: "https://cutt.store/q7r8s9",
+    originalUrl: "https://producthunt.com/posts/awesome-app",
+    createdAt: "2025-08-28",
+    clicks: 189,
+  },
+];
