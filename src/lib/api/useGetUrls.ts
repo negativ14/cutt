@@ -14,7 +14,6 @@ const getUrls = async () => {
     );
 
     const data = await response.json();
-    console.log("the response data", data);
     if (data.error) {
       toast.error(`${data.error}`);
       return null;
@@ -29,5 +28,6 @@ export const useGetUrls = () => {
   return useQuery({
     queryKey: ["urls"],
     queryFn: getUrls,
+    
   });
 };

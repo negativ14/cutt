@@ -5,6 +5,7 @@ import SessionProviderWrapper from "./providers/SessionProviderWrapper";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import QueryProvider from "./providers/QueryProvider";
+import GoogleAnalytics from "@/components/GoogleAnalytic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <QueryProvider>
             <Navbar />
             {children}
+            <GoogleAnalytics />
             <Footer />
           </QueryProvider>
         </SessionProviderWrapper>

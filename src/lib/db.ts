@@ -2,8 +2,6 @@ import mongoose, { Connection } from "mongoose";
 
 const MONGODB_URI = process.env.NEXT_PUBLIC_MONGODB_URI;
 
-console.log(MONGODB_URI);
-
 if (!MONGODB_URI) {
   throw new Error("Please define mongodb uri in env");
 }

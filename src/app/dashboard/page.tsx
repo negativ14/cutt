@@ -14,7 +14,6 @@ interface UrlProps {
 
 export default function Dashboard() {
   const { data, isLoading } = useGetUrls();
-  console.log("teh data", data);
 
   if (isLoading) {
     return <DashboardSkeleton />;

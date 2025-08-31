@@ -1,7 +1,9 @@
+"use client";
 import { useGetStats } from "@/lib/api/useGetStats";
 
 export default function SiteStats() {
-  const { data, isPending } = useGetStats();
+  const { data } = useGetStats();
+  console.log("Fetching stats...");
 
   return (
     <section className="py-16 md:py-32">
@@ -14,36 +16,36 @@ export default function SiteStats() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
-          <div className="flex shadow-custom flex-col gap-4 border border-neutral-300 rounded-xl p-4">
+          <div className="flex shadow-lg flex-col gap-4 border border-neutral-300 rounded-xl p-4">
             <h3 className="text-lg text-center text-neutral-700 font-medium">
               Total Users
             </h3>
             <h1 className="text-5xl md:text-6xl text-primary text-center font-bold">
-              {isPending ? "00" : data.userCount}
+              {data?.userCount ?? "00"}
             </h1>
             <h3 className="text-lg text-center text-muted-foreground">
               and growing every day.
             </h3>
           </div>
 
-          <div className="flex shadow-custom flex-col gap-4 border border-neutral-300 rounded-xl p-4">
+          <div className="flex shadow-lg flex-col gap-4 border border-neutral-300 rounded-xl p-4">
             <h3 className="text-lg text-center text-neutral-700 font-medium">
               Total Clicks
             </h3>
             <h1 className="text-5xl md:text-6xl text-primary text-center font-bold">
-              {isPending ? "00" : data.clickCount}
+              {data?.clickCount ?? "00"}
             </h1>
             <h3 className="text-lg text-center text-muted-foreground">
               tracked across all links.
             </h3>
           </div>
 
-          <div className="flex shadow-custom flex-col gap-4 border border-neutral-300 rounded-xl p-4">
+          <div className="flex shadow-lg flex-col gap-4 border border-neutral-300 rounded-xl p-4">
             <h3 className="text-lg text-center text-neutral-700 font-medium">
               Total Urls
             </h3>
             <h1 className="text-5xl md:text-6xl text-primary text-center font-bold">
-              {isPending ? "00" : data.urlCount}
+              {data?.urlCount ?? "00"}
             </h1>
             <h3 className="text-lg text-center text-muted-foreground">
               shortened and shared.

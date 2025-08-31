@@ -44,80 +44,83 @@ export default function Hero() {
     );
   };
   return (
-    <section id="hero" ref={containerRef} className="py-12 md:py-40 relative">
-      <motion.div
-        style={{ translateY }}
-        className="absolute -left-20 -top-4 hidden md:block"
-      >
-        <Image src={link} alt="link" className="lg:h-80 h-55 w-auto" />
-      </motion.div>
+    <section id="hero" ref={containerRef}>
+      <div className="relative py-12 md:py-40">
+        <motion.img
+          src={link.src}
+          alt="link"
+          className="lg:h-80 h-55 w-auto absolute -left-20 -top-4 hidden md:block"
+          style={{ translateY }}
+        />
 
-      <motion.div
-        style={{ translateY }}
-        className="absolute -bottom-30 -right-20 hidden md:block"
-      >
-        <Image src={plane} alt="plane" className="lg:h-90 h-70 w-auto" />
-      </motion.div>
-      <div className="w-full mx-auto flex flex-col text-center gap-4">
-        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-          Shorten your links in one click
-        </h1>
-        <p className="text-lg tracking-tight text-muted-foreground ">
-          Fast, simple, and trackable URL shortener.
-        </p>
+        <motion.img
+          src={plane.src}
+          alt="plane"
+          className="lg:h-90 h-70 w-auto absolute -bottom-30 -right-20 hidden md:block"
+          style={{ translateY }}
+        />
 
-        <div className="flex flex-col gap-8 md:py-6 w-full px-2 md:px-0 md:w-3/4 mx-auto">
-          <div className="flex flex-col gap-4">
-            <label className="text-lg md:text-xl text-start font-medium">
-              Paste Your Link.
-            </label>
-            <Input
-              onChange={(e) => setOriginalUrl(e.target.value)}
-              type="text"
-              placeholder="https://example.com"
-              className="placeholder:text-sm py-5 md:py-6"
-            />
-          </div>
+        <div className="w-full mx-auto flex flex-col text-center gap-4">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+            Shorten your links in one click
+          </h1>
+          <p className="text-lg tracking-tight text-muted-foreground ">
+            Fast, simple, and trackable URL shortener.
+          </p>
 
-          <div className="flex flex-col gap-4">
-            <label className="text-lg md:text-xl text-start font-medium">
-              Your Custom name.{" "}
-              <span className="text-muted-foreground font-normal text-sm text-start">
-                (optional)
-              </span>
-            </label>
-            <Input
-              onChange={(e) => setCustomSlug(e.target.value)}
-              type="text"
-              placeholder="https://example.com/custom-name"
-              className="placeholder:text-sm py-5 md:py-6"
-            />
-          </div>
-
-          {shortenLink && (
-            <div className="flex">
+          <div className="flex flex-col gap-8 md:py-6 w-full px-2 md:px-0 md:w-3/4 mx-auto">
+            <div className="flex flex-col gap-4">
+              <label className="text-lg md:text-xl text-start font-medium">
+                Paste Your Link.
+              </label>
               <Input
-                readOnly
+                onChange={(e) => setOriginalUrl(e.target.value)}
                 type="text"
-                placeholder={shortenLink}
-                className="placeholder:text-sm py-5 md:py-6 rounded-br-none rounded-tr-none"
+                placeholder="https://example.com"
+                className="placeholder:text-sm py-5 md:py-6"
               />
-              <div
-                onClick={() => copyToClipBoard(shortenLink)}
-                className="h-auto md:w-1/12 rounded-br-sm rounded-tr-sm border border-l-transparent flex items-center justify-center p-1.5 cursor-pointer"
-              >
-                <CopyIcon className="text-neutral-400" />
-              </div>
             </div>
-          )}
 
-          <Button
-            onClick={handleShortenUrl}
-            className="font-medium cursor-pointer text-lg py-6 flex items-ceenter justify-center"
-          >
-            {isPending && <Loader className="animate-spin" />}
-            {isPending ? "Shortening..." : "Shorten"}
-          </Button>
+            <div className="flex flex-col gap-4">
+              <label className="text-lg md:text-xl text-start font-medium">
+                Your Custom name.{" "}
+                <span className="text-muted-foreground font-normal text-sm text-start">
+                  (optional)
+                </span>
+              </label>
+              <Input
+                onChange={(e) => setCustomSlug(e.target.value)}
+                type="text"
+                placeholder="https://example.com/custom-name"
+                className="placeholder:text-sm py-5 md:py-6"
+              />
+            </div>
+
+            {shortenLink && (
+              <div className="flex">
+                <Input
+                  readOnly
+                  type="text"
+                  placeholder={shortenLink}
+                  className="placeholder:text-sm py-5 md:py-6 rounded-br-none rounded-tr-none"
+                />
+                <div
+                  onClick={() => copyToClipBoard(shortenLink)}
+                  className="h-auto md:w-1/12 rounded-br-sm rounded-tr-sm border border-l-transparent flex items-center justify-center p-1.5 cursor-pointer"
+                >
+                  <CopyIcon className="text-neutral-400" />
+                </div>
+              </div>
+            )}
+
+            <Button
+              onClick={handleShortenUrl}
+              className="font-medium cursor-pointer text-lg py-6 flex items-ceenter justify-center"
+            >
+              {isPending && <Loader className="animate-spin" />}
+              {isPending ? "Shortening..." : "Shorten"}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

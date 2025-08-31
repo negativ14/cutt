@@ -24,7 +24,6 @@ const fetchShortenUrl = async (
     toast.success("URL created successfully!");
     return data.Url.shortId;
   } catch (error) {
-    console.log("error from fetch psot", error);
     return null;
   }
 };

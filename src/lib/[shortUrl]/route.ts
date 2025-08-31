@@ -27,7 +27,6 @@ export async function GET(
 
     return NextResponse.redirect(redirectUrl);
   } catch (error) {
-    console.log("the be error", error);
     return NextResponse.json({ message: "Url not found" }, { status: 500 });
   }
 }

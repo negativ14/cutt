@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const getStats = async () => {
   try {
-    const response = fetch(
+    const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URI}/api/stats`,
       {
         method: "GET",
