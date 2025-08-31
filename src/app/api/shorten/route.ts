@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/options";
 import { nanoid } from "nanoid";
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<Response> {
   try {
     const body = await req.json();
     const { originalUrl, customSlug } = body;
@@ -71,6 +71,6 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error) {
-    NextResponse.json({ error: "Internal Error 500!" }, { status: 500 });
+    return NextResponse.json({ error: "Internal Error 500!" }, { status: 500 });
   }
 }
