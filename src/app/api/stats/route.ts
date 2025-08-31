@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(): Promise<Response> {
   try {
     const [userCount, urlCount, clickCount] = await Promise.all([
       prisma.user.count(),
@@ -18,6 +18,6 @@ export async function GET() {
       { status: 200 }
     );
   } catch (error) {
-    NextResponse.json({ error: "Internal Error 500!" }, { status: 500 });
+    return NextResponse.json({ error: "Internal Error 500!" }, { status: 500 });
   }
 }

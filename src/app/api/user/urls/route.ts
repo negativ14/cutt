@@ -3,7 +3,7 @@ import { authOptions } from "../../auth/[...nextauth]/options";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-export async function GET() {
+export async function GET(): Promise<Response> {
   const session = await getServerSession(authOptions);
 
   if (!session?.user) {
@@ -30,6 +30,6 @@ export async function GET() {
 
     return NextResponse.json(urls);
   } catch (error) {
-    NextResponse.json({ error: "Internal Error 500!" }, { status: 500 });
+    return NextResponse.json({ error: "Internal Error 500!" }, { status: 500 });
   }
 }
