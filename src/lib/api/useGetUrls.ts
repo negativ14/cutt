@@ -10,6 +10,7 @@ const getUrls = async () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
       }
     );
 
