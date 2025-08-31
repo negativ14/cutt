@@ -3,7 +3,6 @@ import { useGetStats } from "@/lib/api/useGetStats";
 
 export default function SiteStats() {
   const { data } = useGetStats();
-  console.log("Fetching stats...");
 
   return (
     <section className="py-16 md:py-32">
